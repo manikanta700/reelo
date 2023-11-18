@@ -26,12 +26,10 @@ class QuestionPaperGenerator {
         if (_.sumBy(selectedQuestions, 'marks') < marks_sum) {
             selectedQuestions.push(question);
         } else {
-            break; // Exit the loop when the total marks are reached
+            break; //  The loop need to exit when the total marks are reached
         }
         }
-
         
-
         questionPaper.push(...selectedQuestions);
     });
 
