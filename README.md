@@ -1,7 +1,6 @@
 ## Question Paper Generator application
 
-The application store a number of questions in a Question Store. A question can have the following attributes {question, subject, topic, difficulty, marks}.
-The Question paper Generator look for questions in the Question Store and then generate the question paper based on the total marks and the distribution of marks based on Difficulty
+The application stores a variety of questions in a designated Question Store. Each question is characterized by the following attributes: {question, subject, topic, difficulty, marks}. The Question Paper Generator scans the Question Store to subsequently generate a question paper. This generation process is contingent upon the total marks desired and the distribution of marks based on the level of difficulty.
 
 ## Prerequisites
 

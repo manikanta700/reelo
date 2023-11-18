@@ -5,7 +5,9 @@ class QuestionPaperGenerator {
     this.questions = questions;
   }
 
-  generateQuestionPaper(totalMarks, difficultyDistribution) {
+  generateQuestionPaper(input_question_paper_req) {
+    const totalMarks = input_question_paper_req.totalMarks
+    const difficultyDistribution = input_question_paper_req.difficultyDistribution
     const questionPaper = [];
 
     difficultyDistribution.forEach(({ difficulty, percentage }) => {

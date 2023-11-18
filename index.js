@@ -6,21 +6,23 @@ const questionsData = fs.readFileSync('./data/questions.json', 'utf-8');
 const questions = JSON.parse(questionsData);
 
 // Example difficulty distribution
-const difficultyDistribution = [
-  { difficulty: 'easy', percentage: 20 },
-  { difficulty: 'medium', percentage: 50 },
-  { difficulty: 'hard', percentage: 30 },
-];
+const input_question_paper_req = {
 
-// Example total marks
-const totalMarks = 100;
+      totalMarks:100,
+      difficultyDistribution : [
+                              { difficulty: 'easy', percentage: 20 },
+                              { difficulty: 'medium', percentage: 50 },
+                              { difficulty: 'hard', percentage: 30 },
+                               ]
+
+}
 
 
 // Create a QuestionPaperGenerator instance
 const questionPaperGenerator = new QuestionPaperGenerator(questions);
 
 // Generate the question paper
-const generatedPaper = questionPaperGenerator.generateQuestionPaper(totalMarks, difficultyDistribution);
+const generatedPaper = questionPaperGenerator.generateQuestionPaper(input_question_paper_req);
 
 // Display the generated question paper
 console.log('Generated Question Paper:');
