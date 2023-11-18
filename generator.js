@@ -10,12 +10,17 @@ class QuestionPaperGenerator {
     const difficultyDistribution = input_question_paper_req.difficultyDistribution
     const questionPaper = [];
 
-    difficultyDistribution.forEach(({ difficulty, percentage }) => {
-       const marks_sum = Math.round((totalMarks * percentage) / 100);
+
+    var check_percentage = 0 
+    difficultyDistribution.forEach((elem) => {
+
+       check_percentage += elem.percentage
+       const marks_sum = Math.round((totalMarks * elem.percentage) / 100);
        const selectedQuestions = [];
 
         // Shuffle the array of filtered questions
-        const shuffledQuestions = _.shuffle(_.filter(this.questions, { difficulty }));
+        const shuffledQuestions = _.shuffle(_.filter(this.questions, {[Object.keys(elem)[0]]:elem[Object.keys(elem)[0]]} ));
+        // console.log(shuffledQuestions)
 
         for (const question of shuffledQuestions) {
         if (_.sumBy(selectedQuestions, 'marks') < marks_sum) {
@@ -25,13 +30,21 @@ class QuestionPaperGenerator {
         }
         }
 
+        
+
         questionPaper.push(...selectedQuestions);
     });
 
 
-    if (_.sumBy(questionPaper, 'marks') !== totalMarks) {
-        // Handle case where the total marks of the generated paper do not match the specified total marks
-        console.error('The total marks of the generated paper do not match the specified total marks.');
+    if(check_percentage!=100){
+      // Handling the case when given percentages sum is not 100
+      console.error('Can`t make the Question paper as  given difficulty distribution percentages sum is not 100');
+      process.exit(1);
+
+    }
+    else if ( _.sumBy(questionPaper, 'marks') !== totalMarks) {
+        // Handling case where the total marks of the generated paper do not match the specified total marks
+        console.error('Can`t make the Question paper as total marks of the generated paper with given difficulty distribution do not match the specified total marks.');
         process.exit(1);
       }
       
