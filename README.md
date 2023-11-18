@@ -13,7 +13,7 @@ The Question paper Generator look for questions in the Question Store and then g
 1. Clone the repository:
 
 ```bash
-git clone [https://github.com/manikanta700/reelo.git](https://github.com/manikanta700/reelo.git)
+   git clone https://github.com/manikanta700/reelo.git
 ```
 
 2. Navigate into the project directory:
@@ -27,7 +27,8 @@ git clone [https://github.com/manikanta700/reelo.git](https://github.com/manikan
    npm install
 ```
 
-4. To run the program:
+
+## Run the Program
 
 ```bash
    npm start
