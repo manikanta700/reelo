@@ -33,3 +33,14 @@ The Question paper Generator look for questions in the Question Store and then g
 ```bash
    npm start
 ```
+
+## Program Structure
+
+ 
+ * [data](./data)
+   * [questions.json](./data/questions.json)
+ * [generator.js](./generator.js)
+ * [index.js](./index.js)
+ * [package.json](./package.json)
+ * [README.md](./README.md)
+ 
